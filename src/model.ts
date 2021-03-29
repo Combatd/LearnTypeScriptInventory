@@ -43,3 +43,17 @@ let updatedInventoryItem = inventoryItem;
 inventoryItem.createDate = new Date();
 
 saveInventoryItem(inventoryItem);
+
+function clone<T, U>(source: T, options: U): T {
+    const serialized = JSON.stringify(source);
+    return JSON.parse(serialized);
+}
+
+const cloned = clone(inventoryItem, { deep: true });
+
+interface KeyValuePairs<TKey, TValue> {
+    Key: TKey;
+    Value: TValue;
+}
+
+var keyValue: KeyValuePairs<string, number> = { Key: "something", Value: 1234 };
