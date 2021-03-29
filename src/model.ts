@@ -7,9 +7,11 @@ let originalCost: number = 425;
 interface InventoryItem {
     displayName: string;
     inventoryType: string;
-    trackingNumber: string;
+    readonly trackingNumber: string;
     createDate: Date;
-    originalCost: number;
+    originalCost?: number;
+
+    addNote?: (note: string) => string;
 }
 
 function getInventoryItem(trackingNumber: string): InventoryItem {
@@ -21,6 +23,8 @@ function saveInventoryItem(item) {
 }
 
 let inventoryItem = getInventoryItem(trackingNumber);
+
+let updatedInventoryItem = inventoryItem;
 
 inventoryItem.createDate = new Date();
 
