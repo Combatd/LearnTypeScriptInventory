@@ -4,9 +4,14 @@ let trackingNumber: string = "FD123455";
 let createDate: Date = new Date();
 let originalCost: number = 425;
 
+enum InventoryItemType {
+    Computer = "computer",
+    furniture = "furniture"
+}
+
 interface InventoryItem {
     displayName: string;
-    inventoryType: string;
+    inventoryType: "computer" | "furniture"; // literal type, could also have used enum InventoryItemType
     readonly trackingNumber: string;
     createDate: Date;
     originalCost?: number;
